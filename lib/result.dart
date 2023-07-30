@@ -50,6 +50,7 @@ class Result extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 3,
               child: ResultSummary(summary: getResultSummary())),
           ResetButton(restartQuiz: restartQuiz),
+          SizedBox()
         ],
       ),
     );
