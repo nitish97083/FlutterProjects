@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queze/congratulation.dart';
 import 'package:queze/custWidgetClasses/body.dart';
 import 'package:queze/custWidgetClasses/question.dart';
 import 'package:queze/datas/question_data.dart';
@@ -12,20 +13,20 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  String activeScreen = "Start-screen";
+  String _activeScreen = "Start-screen";
 
   List<String> answersList = [];
 
   void switchScreen() {
     setState(() {
-      activeScreen = "Question-screen";
+      _activeScreen = "Question-screen";
       answersList = [];
     });
   }
 
   void restartQuiz() {
     setState(() {
-      activeScreen = "Question-screen";
+      _activeScreen = "Question-screen";
       answersList = [];
     });
   }
@@ -37,9 +38,26 @@ class _QuizState extends State<Quiz> {
         print("Selected Answer $str");
       }
       setState(() {
-        activeScreen = "Result-screen";
+        _activeScreen = "Result-screen";
+        conratPage();
         //
       });
+    }
+  }
+
+  void conratPage() {
+    for (int i = 0; i < answersList.length; i++) {
+      if (answersList[i] == question[i].answer[0]) {
+        setState(() {
+          _activeScreen = "Congrat-screen";
+          //
+        });
+      } else {
+        setState(() {
+          _activeScreen = "Result-screen";
+          //
+        });
+      }
     }
   }
 
@@ -47,17 +65,20 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     Widget currentScreen = CustBody(switchScreen);
 
-    if (activeScreen == "Question-screen") {
+    if (_activeScreen == "Question-screen") {
       currentScreen = Question(
         onSelectedAnswer: choosedAnswer,
       );
     }
 
-    if (activeScreen == "Result-screen") {
+    if (_activeScreen == "Result-screen") {
       currentScreen = Result(
         answeredList: answersList,
         restartQuiz: restartQuiz,
       );
+    }
+    if (_activeScreen == "Congrat-screen") {
+      currentScreen = Congratulation(correctAnswer: answersList.length);
     }
     return MaterialApp(
         color: const Color.fromARGB(255, 37, 36, 35),

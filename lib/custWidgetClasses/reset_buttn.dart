@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ResetButton extends StatelessWidget {
-  ResetButton({super.key, required this.restartQuiz});
+  const ResetButton({super.key, required this.restartQuiz});
   final void Function() restartQuiz;
 
   @override

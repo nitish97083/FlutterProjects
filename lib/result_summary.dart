@@ -6,12 +6,6 @@ class ResultSummary extends StatelessWidget {
 
   final List<Map<String, Object>> summary;
 
-  void circleAwatarColor() {
-    final correctAnswer = summary.where((data) {
-      return data['selected_answer'] == data['Correct_answer'];
-    }).toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     print(summary.length);
