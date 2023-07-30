@@ -6,6 +6,12 @@ class ResultSummary extends StatelessWidget {
 
   final List<Map<String, Object>> summary;
 
+  void circleAwatarColor() {
+    final correctAnswer = summary.where((data) {
+      return data['selected_answer'] == data['Correct_answer'];
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     print(summary.length);
@@ -14,26 +20,53 @@ class ResultSummary extends StatelessWidget {
       children: [
         ...summary.map((data) {
           return Container(
+            //  color: Colors.red,
             margin: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            height: MediaQuery.of(context).size.height / 8,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: Text(
-                    ((data["Question_index"] as int) + 1).toString(),
-                    style: cStyle(fontSize: 20),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        child: CircleAvatar(
+                          backgroundColor:
+                              data['selected_answer'] == data['Correct_answer']
+                                  ? Colors.green
+                                  : Colors.red,
+                          child: Text(
+                            ((data["Question_index"] as int) + 1).toString(),
+                            style: cStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        child: text(data["Question"],
+                            color: Colors.white, fontSize: 15.0),
+                      ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      text(data["Question"], color: Colors.white),
-                      text(data["Correct_answer"], color: Colors.green),
-                      text(data["selected_answer"], color: Colors.yellowAccent)
+                      text(data["Correct_answer"], color: Colors.white),
+                      Expanded(
+                          child: text(data["selected_answer"],
+                              color: Colors.yellowAccent))
                     ],
                   ),
-                )
+                ),
               ],
             ),
           );
@@ -43,7 +76,11 @@ class ResultSummary extends StatelessWidget {
   }
 }
 
-Widget text(var str, {Color? color}) {
+Widget text(var str, {Color? color, var fontSize}) {
   return Text(str.toString(),
-      textAlign: TextAlign.center, style: TextStyle(color: color));
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+      ));
 }

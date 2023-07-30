@@ -7,10 +7,10 @@ class ResetButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
-      icon: const Icon(Icons.restore),
+      icon: const Icon(Icons.restart_alt_rounded),
       onPressed: restartQuiz,
       style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-      label: const Text("Reset Quiz"),
+      label: const Text("Restart Quiz"),
     );
   }
 }

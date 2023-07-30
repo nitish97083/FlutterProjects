@@ -47,10 +47,12 @@ class Result extends StatelessWidget {
           ),
           Container(
               margin: const EdgeInsets.all(10),
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery.of(context).size.height / 2.5,
               child: ResultSummary(summary: getResultSummary())),
           ResetButton(restartQuiz: restartQuiz),
-          SizedBox()
+          SizedBox(
+            height: 10,
+          )
         ],
       ),
     );
