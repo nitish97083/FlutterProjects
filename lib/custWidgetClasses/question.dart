@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:queze/custWidgetClasses/answerButton.dart';
-import 'package:queze/datas/question_data.dart';
+import 'package:Quiz/custWidgetClasses/answerButton.dart';
+import 'package:Quiz/datas/question_data.dart';
 
 class Question extends StatefulWidget {
   const Question({super.key, required this.onSelectedAnswer});

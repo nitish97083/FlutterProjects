@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queze/custWidgetClasses/question.dart';
+import 'package:Quiz/custWidgetClasses/question.dart';
 
 class Congratulation extends StatelessWidget {
   const Congratulation({super.key, required this.correctAnswer});

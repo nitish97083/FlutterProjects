@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:queze/custWidgetClasses/question.dart';
-import 'package:queze/custWidgetClasses/reset_buttn.dart';
-import 'package:queze/datas/question_data.dart';
-import 'package:queze/result_summary.dart';
+import 'package:Quiz/custWidgetClasses/question.dart';
+import 'package:Quiz/custWidgetClasses/reset_buttn.dart';
+import 'package:Quiz/datas/question_data.dart';
+import 'package:Quiz/result_summary.dart';
 
 class Result extends StatelessWidget {
   const Result(
