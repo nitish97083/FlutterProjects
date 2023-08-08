@@ -1,4 +1,4 @@
-import 'package:expense_tracker/homePage.dart';
+import 'package:expense_tracker/widget/expenses.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +6,6 @@ void main() {
     theme: ThemeData(
       useMaterial3: true,
     ),
-    home: HomePage(),
+    home: const Expenese(),
   ));
 }

@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(66, 79, 79, 79),
+        backgroundColor: const Color.fromARGB(66, 79, 79, 79),
         title: const Text("Expense Tracker"),
         elevation: 0.5,
         actions: [
