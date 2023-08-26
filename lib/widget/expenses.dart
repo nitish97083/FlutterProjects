@@ -1,4 +1,5 @@
 import 'package:expense_tracker/DataModel/expense.dart';
+import 'package:expense_tracker/chart/chart.dart';
 import 'package:expense_tracker/widget/new_expense.dart';
 import 'package:flutter/material.dart';
 
@@ -32,8 +33,23 @@ class _ExpeneseState extends State<Expenese> {
   }
 
   _removeExpenses(Expense expense) {
+    final expenseIndex = _registerExpenses.indexOf(expense);
     setState(() {
       _registerExpenses.remove(expense);
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 2),
+          content: const Text("Expense Deleted"),
+          action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () {
+                setState(() {
+                  _registerExpenses.insert(expenseIndex, expense);
+                });
+              }),
+        ),
+      );
     });
   }
 
@@ -56,9 +72,11 @@ class _ExpeneseState extends State<Expenese> {
         onRemoveExpense: _removeExpenses,
       );
     }
+    final width = MediaQuery.of(context).size.width;
+    final hieght = MediaQuery.of(context).size.height;
+    print(" width $width and $hieght ");
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(66, 79, 79, 79),
         title: const Text("Expense Tracker"),
         elevation: 0.5,
         actions: [
@@ -66,7 +84,19 @@ class _ExpeneseState extends State<Expenese> {
               onPressed: _openAddExpenseSheet, icon: const Icon(Icons.add)),
         ],
       ),
-      body: mainContent,
+      body: width < 450
+          ? Column(
+              children: [
+                Chart(expenses: _registerExpenses),
+                mainContent,
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(child: Chart(expenses: _registerExpenses)),
+                Expanded(child: mainContent),
+              ],
+            ),
     );
   }
 }
