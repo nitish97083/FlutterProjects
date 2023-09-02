@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:meals/dataset/mealdataset.dart';
 import 'package:meals/screens/CategoryScreen.dart';
 import 'package:meals/screens/filter_screen.dart';
 import 'package:meals/screens/mealscreen.dart';
 import 'package:meals/widget/side_drawer.dart';
 
 import '../Module/meals.dart';
+
+Map<Filter, bool> kIntialFilters = {
+  Filter.gluten: false,
+  Filter.lactose: false,
+  Filter.vegetarian: false,
+  Filter.vegan: false
+};
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -49,21 +57,45 @@ class _TabsState extends State<TabScreen> {
     }
   }
 
-  void _setScreen(String identifier) {
+  Map<Filter, bool> selectedFilters = kIntialFilters;
+
+  void _setScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'Filter') {
-      Navigator.of(context).push(
+      final result = await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
-          builder: (context) => const FilterScreen(),
+          builder: (context) => FilterScreen(
+            initialFilter: selectedFilters,
+          ),
         ),
       );
+      setState(() {
+        selectedFilters = result ?? kIntialFilters;
+      });
+      print(result);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final availableMeal = dummyMeals.where((meal) {
+      if (selectedFilters[Filter.gluten]! && !meal.isGlutenFree) {
+        return false;
+      }
+      if (selectedFilters[Filter.lactose]! && !meal.isLactoseFree) {
+        return false;
+      }
+      if (selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+        return false;
+      }
+      if (selectedFilters[Filter.vegan]! && !meal.isVegan) {
+        return false;
+      }
+      return true;
+    }).toList();
     Widget activePage = CategoryScreen(
       onToggleFavorite: _toggleAddRemFavoriteMeal,
+      availableMeals: availableMeal,
     );
     String activePageTitle = "Categories";
     if (_selectedPageIndex == 1) {
