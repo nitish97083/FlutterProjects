@@ -23,6 +23,22 @@ class MealItem extends StatelessWidget {
         meal.affordability.name.substring(1);
   }
 
+  String get checkTypeOfFood {
+    String activeFoodType = "";
+    if (meal.isGlutenFree) {
+      activeFoodType = "Gluten Free";
+    } else if (meal.isLactoseFree) {
+      activeFoodType = "Lactose Free";
+    } else if (meal.isVegetarian) {
+      activeFoodType = "Vegetarian Food";
+    } else if (meal.isVegan) {
+      activeFoodType = "Vegan Food";
+    } else {
+      activeFoodType = "Non-Veg";
+    }
+    return activeFoodType;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -88,6 +104,13 @@ class MealItem extends StatelessWidget {
                         MealItemTrait(
                           icon: Icons.currency_rupee,
                           lablel: affordabilityText,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        MealItemTrait(
+                          icon: Icons.type_specimen_outlined,
+                          lablel: checkTypeOfFood,
                         ),
                         const SizedBox(
                           width: 10,
