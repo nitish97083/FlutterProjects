@@ -1,0 +1,12 @@
+io.flutter.plugins.flutter_plugin_android_lifecycle-pngs-0 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\generated\res\pngs\release
+io.flutter.plugins.flutter_plugin_android_lifecycle-resValues-1 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\generated\res\resValues\release
+io.flutter.plugins.flutter_plugin_android_lifecycle-rs-2 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\generated\res\rs\release
+io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-3 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-4 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.flutter_plugin_android_lifecycle-merged_res-5 C:\Document_disk\flutter\FlutterProject\FlutterProjects\chat_bot\build\flutter_plugin_android_lifecycle\intermediates\merged_res\release
+io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-window-1.0.0-beta04-6 C:\Users\nitis\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-annotation-experimental-1.1.0-7 C:\Users\nitis\.gradle\caches\transforms-3\6c0c163cc77ae6c91f9f7dfcd179c29c\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.flutter_plugin_android_lifecycle-core-1.6.0-8 C:\Users\nitis\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\res
+io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-window-java-1.0.0-beta04-9 C:\Users\nitis\.gradle\caches\transforms-3\ae81e06d24c799147c26814497a2a305\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.flutter_plugin_android_lifecycle-main-10 C:\Users\nitis\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.16\android\src\main\res
+io.flutter.plugins.flutter_plugin_android_lifecycle-release-11 C:\Users\nitis\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.16\android\src\release\res
